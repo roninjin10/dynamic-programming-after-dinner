@@ -63,8 +63,8 @@ const fibDynamicProg = (n) => {
     return memoized[n]
   } 
 
-  m[n] = fib(n-1) + fib(n-2)
-  return m[n]
+  memoized[n] = fib(n-1) + fib(n-2)
+  return memoized[n]
 }
 
 
@@ -288,7 +288,7 @@ const optimizer = () => {
      *  If it's not complete we need to make sure that there are still players left to choose from!
      */
     
-    } else if (currentPoolIndex >= pool.length - 1) {
+    } else if (currentPoolIndex >= pool.length) {
       return INVALID_LINEUP
 
     }
@@ -309,7 +309,7 @@ const optimizer = () => {
      */
     if (isMemoized) {
       const memoized = memoizer.lineup(playersLeft, salaryLeft, rosterSpotsLeft)
-      if (isMemoized.roster === INVALID_LINEUP) {
+      if (memoized.roster === INVALID_LINEUP) {
         return INVALID_LINEUP
       }
       const combinedLineup = currentLineup.combine(memoized)
