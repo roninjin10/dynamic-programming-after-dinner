@@ -394,8 +394,9 @@ const optimizer = () => {
       * N is the number of players in the player pool.
       */ 
   }
+  const out = recursiveStep()
   console.log('FINISHED!')
-  return recursiveStep()
+  return out
 }
 
 /*
